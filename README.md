@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-# AutoBattler
+# Autobattler UE5 Project
 
-Developed with Unreal Engine 5
-=======
-# autobattler-ue5
->>>>>>> 790a0742a1d845de8130ce697382d856b778ce4b
+Personal project to develop skills in Unreal Engine game development.
+
+Gym-themed autobattler game heavily inspired by The Bazaar
