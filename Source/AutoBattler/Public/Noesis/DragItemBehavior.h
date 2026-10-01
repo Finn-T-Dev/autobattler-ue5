@@ -12,6 +12,7 @@
 #include <NsCore/Noesis.h>
 #include <NsGui/FrameworkElement.h>
 #include <NsApp/Behavior.h>
+#include <NsGui/ContentControl.h>
 
 namespace Noesis
 {
@@ -26,16 +27,20 @@ namespace Inventory
     class DragItemBehavior final : public NoesisApp::BehaviorT<Noesis::ContentControl>
     {
     public:
-        void OnAttached();
         void OnMouseMove(Noesis::BaseComponent* sender, const Noesis::MouseEventArgs& e);
+    protected:
+        Noesis::Ptr<Freezable> CreateInstanceCore() const override;
+        void OnAttached() override;
+        void OnDetaching() override;
     private:
         bool _mouseClicked;
 
         NS_DECLARE_REFLECTION(DragItemBehavior, Behavior)
+        //NS_DECLARE_REFLECTION(DragItemBehavior, NoesisApp::BehaviorT<Noesis::ContentControl>)
 
     };
 }
-
+#endif
 /*
 namespace Noesis
 {
@@ -88,5 +93,6 @@ namespace Inventory
 
 }
 
-*/
 #endif
+*/
+
