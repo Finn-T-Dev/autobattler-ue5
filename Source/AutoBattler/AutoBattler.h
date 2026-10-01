@@ -6,8 +6,5 @@
 
 #include "NoesisRuntime.h"
 
-class NoesisRegistration : public FDefaultGameModuleImpl
-{
-	virtual void StartupModule() override;
-	virtual void ShutdownModule() override;
-};
+DECLARE_LOG_CATEGORY_EXTERN(LogNoesisInventory, Display, All);
+

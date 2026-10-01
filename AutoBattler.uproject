@@ -10,7 +10,10 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"CoreUObject",
-				"Engine"
+				"Engine",
+				"GameplayAbilities",
+				"ModelViewViewModel",
+				"NoesisRuntime"
 			]
 		}
 	],
@@ -33,6 +36,10 @@
 		},
 		{
 			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "ModelViewViewModelPreview",
 			"Enabled": true
 		}
 	]
