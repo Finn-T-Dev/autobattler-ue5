@@ -7,20 +7,22 @@
 #include "Noesis/DropItemBehavior.h"
 #include "Noesis/InventorySlot.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, AutoBattler, "AutoBattler" );
-
-class NoesisRegistration : public FDefaultGameModuleImpl
+class FAutoBattlerModule : public FDefaultGameModuleImpl
 {
-	void StartupModule() override
+public:
+	virtual void StartupModule() override
 	{
 		Noesis::RegisterComponent<Inventory::DragItemBehavior>();
 		Noesis::RegisterComponent<Inventory::InventorySlot>();
-		//Noesis::RegisterComponent<Inventory::DropItemBehavior>();
+		Noesis::RegisterComponent<Inventory::DropItemBehavior>();
 	}
-	void ShutdownModule() override
+
+	virtual void ShutdownModule() override
 	{
 		Noesis::UnregisterComponent<Inventory::DragItemBehavior>();
 		Noesis::UnregisterComponent<Inventory::InventorySlot>();
-		//Noesis::UnregisterComponent<Inventory::DropItemBehavior>();
+		Noesis::UnregisterComponent<Inventory::DropItemBehavior>();
 	}
 };
+
+IMPLEMENT_PRIMARY_GAME_MODULE(FAutoBattlerModule, AutoBattler, "AutoBattler");

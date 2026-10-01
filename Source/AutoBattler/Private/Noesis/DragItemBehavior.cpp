@@ -6,6 +6,8 @@
 
 #include "Noesis/DragItemBehavior.h"
 
+#include "Noesis/InventorySlot.h"
+
 #include <NsCore/ReflectionImplement.h>
 #include <NsCore/Delegate.h>
 #include <NsGui/DragDrop.h>
@@ -15,59 +17,60 @@
 #include <NsDrawing/Point.h>
 #include "NsGui/ContentControl.h"
 
-#include "Noesis/InventorySlot.h"
 
 
 using namespace Inventory;
 using namespace Noesis;
 
-void DragItemBehavior::OnAttached()
-{
-    // Object to be dragged
-    Noesis::ContentControl* control = GetAssociatedObject();
-    control->PreviewMouseMove() += Noesis::MakeDelegate(this, &DragItemBehavior::OnMouseMove);
-}
+//void DragItemBehavior::OnAttached()
+//{
+//    UE_LOG(LogTemp, Warning, TEXT("DragItemBehavior attached"));
+//    // Object to be dragged
+//    Noesis::ContentControl* control = GetAssociatedObject();
+//    control->PreviewMouseMove() += Noesis::MakeDelegate(this, &DragItemBehavior::OnMouseMove);
+//}
+//
+//void DragItemBehavior::OnMouseMove(Noesis::BaseComponent* sender, const Noesis::MouseEventArgs& e)
+//{
+//    if (_mouseClicked)
+//    {
+//        Noesis::ContentControl* control = GetAssociatedObject();
+//        InventorySlot* slot = Noesis::DynamicCast<InventorySlot*>(control->GetContent());
+//        if (slot != nullptr && slot->GetItem() != nullptr)
+//        {
+//            slot->StartDragging();
+//            Noesis::DragDrop::DoDragDrop(control, slot, DragDropEffects_Move,
+//                [](Noesis::DependencyObject* source, Noesis::BaseComponent* data, Noesis::UIElement* target,
+//                    const Noesis::Point& dropPoint, uint32_t effects)
+//                {
+//                    InventorySlot* slot = (InventorySlot*)data;
+//                    slot->EndDragging();
+//                });
+//        }
+//    }
+//
+//    _mouseClicked = false;
+//}
+//
+//Noesis::Ptr<Freezable> DragItemBehavior::CreateInstanceCore() const
+//{
+//    return *new DragItemBehavior();
+//}
+//
+//void DragItemBehavior::OnDetaching()
+//{
+//
+//}
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//NS_BEGIN_COLD_REGION
+//
+//NS_IMPLEMENT_REFLECTION(DragItemBehavior, "Inventory.DragItemBehavior")
+//{
+//    UIElementData* data = NsMeta<UIElementData>(TypeOf<SelfClass>());
+//}
 
-void DragItemBehavior::OnMouseMove(Noesis::BaseComponent* sender, const Noesis::MouseEventArgs& e)
-{
-    if (_mouseClicked)
-    {
-        Noesis::ContentControl* control = GetAssociatedObject();
-        InventorySlot* slot = Noesis::DynamicCast<InventorySlot*>(control->GetContent());
-        if (slot != nullptr && slot->GetItem() != nullptr)
-        {
-            slot->StartDragging();
-            Noesis::DragDrop::DoDragDrop(control, slot, DragDropEffects_Move,
-                [](Noesis::DependencyObject* source, Noesis::BaseComponent* data, Noesis::UIElement* target,
-                    const Noesis::Point& dropPoint, uint32_t effects)
-                {
-                    InventorySlot* slot = (InventorySlot*)data;
-                    slot->EndDragging();
-                });
-        }
-    }
 
-    _mouseClicked = false;
-}
-
-Noesis::Ptr<Freezable> DragItemBehavior::CreateInstanceCore() const
-{
-    return *new DragItemBehavior();
-}
-
-void DragItemBehavior::OnDetaching()
-{
-
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-NS_BEGIN_COLD_REGION
-
-NS_IMPLEMENT_REFLECTION(DragItemBehavior, "Inventory.DragItemBehavior")
-{
-}
-
-/*
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 DragItemBehavior::DragItemBehavior() : _mouseClicked(false)
 {
@@ -211,4 +214,3 @@ NS_IMPLEMENT_REFLECTION(DragItemBehavior, "Inventory.DragItemBehavior")
 const Noesis::DependencyProperty* DragItemBehavior::DragStartOffsetProperty;
 const Noesis::DependencyProperty* DragItemBehavior::StartDragCommandProperty;
 const Noesis::DependencyProperty* DragItemBehavior::EndDragCommandProperty;
-*/

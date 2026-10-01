@@ -14,34 +14,34 @@
 #include <NsApp/Behavior.h>
 #include <NsGui/ContentControl.h>
 
-namespace Noesis
-{
-    class BaseCommand;
-    struct GiveFeedbackEventArgs;
-    struct MouseEventArgs;
-    struct MouseButtonEventArgs;
-    struct Point;
-}
-namespace Inventory
-{
-    class DragItemBehavior final : public NoesisApp::BehaviorT<Noesis::ContentControl>
-    {
-    public:
-        void OnMouseMove(Noesis::BaseComponent* sender, const Noesis::MouseEventArgs& e);
-    protected:
-        Noesis::Ptr<Freezable> CreateInstanceCore() const override;
-        void OnAttached() override;
-        void OnDetaching() override;
-    private:
-        bool _mouseClicked;
+//namespace Noesis
+//{
+//    class BaseCommand;
+//    struct GiveFeedbackEventArgs;
+//    struct MouseEventArgs;
+//    struct MouseButtonEventArgs;
+//    struct Point;
+//}
+//namespace Inventory
+//{
+//    class DragItemBehavior final : public NoesisApp::BehaviorT<Noesis::ContentControl>
+//    {
+//    public:
+//        void OnMouseMove(Noesis::BaseComponent* sender, const Noesis::MouseEventArgs& e);
+//    protected:
+//        Noesis::Ptr<Freezable> CreateInstanceCore() const override;
+//        void OnAttached() override;
+//        void OnDetaching() override;
+//    private:
+//        bool _mouseClicked;
+//
+//        NS_DECLARE_REFLECTION(DragItemBehavior, Behavior)
+//        //NS_DECLARE_REFLECTION(DragItemBehavior, NoesisApp::BehaviorT<Noesis::ContentControl>)
+//
+//    };
+//}
+//#endif
 
-        NS_DECLARE_REFLECTION(DragItemBehavior, Behavior)
-        //NS_DECLARE_REFLECTION(DragItemBehavior, NoesisApp::BehaviorT<Noesis::ContentControl>)
-
-    };
-}
-#endif
-/*
 namespace Noesis
 {
     class BaseCommand;
@@ -94,5 +94,5 @@ namespace Inventory
 }
 
 #endif
-*/
+
 

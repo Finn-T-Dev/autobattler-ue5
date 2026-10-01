@@ -15,6 +15,6 @@ void InventorySlot::EndDragging()
 
 NS_BEGIN_COLD_REGION
 
-NS_IMPLEMENT_REFLECTION(InventorySlot, "Inventory.InventorySlot")
+NS_IMPLEMENT_REFLECTION(InventorySlot)
 {
 }

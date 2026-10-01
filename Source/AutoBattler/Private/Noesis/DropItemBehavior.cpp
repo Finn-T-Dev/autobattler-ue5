@@ -3,7 +3,7 @@
 // Copyright (c) 2013 Noesis Technologies S.L. All Rights Reserved.
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
+
 #include "Noesis/DropItemBehavior.h"
 
 #include <NsCore/ReflectionImplement.h>
@@ -120,4 +120,3 @@ NS_IMPLEMENT_REFLECTION(DropItemBehavior, "Inventory.DropItemBehavior")
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 const Noesis::DependencyProperty* DropItemBehavior::IsDragOverProperty;
 const Noesis::DependencyProperty* DropItemBehavior::DropCommandProperty;
-*/
