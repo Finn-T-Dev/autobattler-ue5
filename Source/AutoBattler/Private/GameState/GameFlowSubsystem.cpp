@@ -9,6 +9,6 @@ void UGameFlowSubsystem::SetGameState(EGameFlowState NewState)
     bHasInitialised = true;
 
     CurrentState = NewState;
-    UE_LOG(LogTemp, Warning, TEXT("Setting GameState to: %s"), *UEnum::GetValueAsString(NewState));
+    UE_LOG(LogTemp, Warning, TEXT("UGameFlowSubsystem::SetGameState(%s)"), *UEnum::GetValueAsString(NewState));
     OnStateChanged.Broadcast(CurrentState);
 }

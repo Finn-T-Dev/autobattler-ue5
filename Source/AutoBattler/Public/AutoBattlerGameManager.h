@@ -8,7 +8,7 @@
 #include "AutoBattlerGameManager.generated.h"
 
 
-
+class UCharacterData;
 /**
  * 
  */
@@ -20,5 +20,7 @@ class AUTOBATTLER_API UAutoBattlerGameManager : public UObject
 public:
 	UFUNCTION(BlueprintCallable)
 	void InitialiseGame(UCharacterData* SelectedCharacter);
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TMap<FName, TObjectPtr<UCharacterData>> CharacterDataMap;
 };

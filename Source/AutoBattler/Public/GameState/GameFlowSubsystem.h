@@ -30,9 +30,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetGameState(EGameFlowState NewState);	// add StateData as a function arg at some point when persistent data is a thing
 
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = "Game State")
 	FOnGameFlowStateChanged OnStateChanged;
 
+	UFUNCTION(BlueprintCallable, Category = "Game State")
 	EGameFlowState GetGameState() const { return CurrentState; }
 
 	UPROPERTY()

@@ -2,9 +2,9 @@
 
 #pragma once
 
-//#include "../CoreMinimal.h"
-
+#include "CoreMinimal.h"
 #include "../AutoBattler.h"
+#include "DataStructures.generated.h"
 
 /**
  * 
@@ -25,9 +25,70 @@ enum class EPlayerCharacter : uint8 {
 };
 
 UENUM(BlueprintType)
-enum class EItemTags : uint8 {
+enum class EItemTag : uint8 {
 	Freeweight,
 	Supplement,
 	Cardio,
 	Machine,
 };
+
+UENUM(BlueprintType)
+enum class EItemSize : uint8 {
+	Small,
+	Medium,
+	Large
+};
+
+UENUM(BlueprintType)
+enum class EItemTier : uint8 {
+	Bronze,
+	Silver,
+	Gold,
+	Diamond,
+	Legendary
+};
+
+UENUM(BlueprintType)
+enum class EItemEnhancement : uint8 {
+	None,
+	Laced,
+	Heavy,
+	Assisted,
+	Raw,
+};
+
+//--------------------------------ENCOUNTERS-------------------------------//
+UENUM(BlueprintType)
+enum class EEncounterType : uint8 {
+	// This enum needs to correspond to the ViewModel types for the TopPanelViewModel
+	EncounterSelect,
+	CombatEncounter,
+	FreeItemEncounter,
+	GamblingEncounter,
+	MerchantEncounter,
+	SpecialEncounter,
+};
+
+UENUM(BlueprintType)
+enum class EEncounterTier : uint8 {
+	// This enum needs to correspond to the ViewModel types for the TopPanelViewModel
+	Bronze,
+	Silver, 
+	Gold,
+	Diamond,
+	Legendary
+};
+
+USTRUCT(BlueprintType)
+struct FEncounterData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EEncounterType EncounterType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<int32, float> EncounterProbabilityMap;
+};
+
+//--------------------------------GAMESTATE/STRUCTURE-------------------------------//

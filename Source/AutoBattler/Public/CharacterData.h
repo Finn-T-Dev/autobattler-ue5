@@ -10,21 +10,70 @@
 /**
  * 
  */
+USTRUCT(BlueprintType)
+struct FCharacterIdentity
+{
+	GENERATED_BODY()
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+    FString Name;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+    FString Description;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UTexture2D> Image;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString PrimaryColour;
+
+	// redundant?
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EPlayerCharacter Enum;
+};
+
+USTRUCT(BlueprintType)
+struct FCharacterStats
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int32 StartingHealth;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int32 Income;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int32 Gold;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int32 XP;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int32 PlayerLevel;
+
+
+};
+
 UCLASS()
 class UCharacterData : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Name;
+	
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+    FName CharacterId;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Details;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	FCharacterIdentity Identity;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TObjectPtr<UTexture2D> Image;
+	virtual FPrimaryAssetId GetPrimaryAssetId() const override
+	{
+		return FPrimaryAssetId("CharacterData", CharacterId);
+	}
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EPlayerCharacter Enum;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	FCharacterStats Stats;
+
 };
